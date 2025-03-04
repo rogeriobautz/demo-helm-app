@@ -1,0 +1,20 @@
+# templates/servicemonitor.yaml
+{{- if .Values.serviceMonitor.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "demo-app.fullname" . }}-monitor
+  namespace: {{ .Values.serviceMonitor.monitorNameSpace }}
+  labels:
+    {{- range $key, $value := .Values.serviceMonitor.labels }}
+    {{ $key }}: {{ $value | quote }}
+    {{- end }}
+spec:
+  jobLabel: {{ include "demo-app.fullname" . }}
+  selector:
+    matchLabels:
+      app: {{ include "demo-app.fullname" . }}
+  endpoints:
+  {{- toYaml .Values.serviceMonitor.endpoints | nindent 4 }}
+  sampleLimit: {{ .Values.serviceMonitor.sampleLimit }}
+{{- end }}
