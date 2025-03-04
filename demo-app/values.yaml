@@ -9,7 +9,7 @@ service:
   type: ClusterIP
   port: 80
 
-metrics:
+serviceMonitor:
   enabled: true
-  path: /metrics
-  port: 9113
+  scrapeInterval: 30s
+  metricsPath: /metrics
