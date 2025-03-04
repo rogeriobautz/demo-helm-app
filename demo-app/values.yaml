@@ -9,7 +9,3 @@ service:
   type: ClusterIP
   port: 80
 
-#metrics:
-#  enabled: true
-#  path: /metrics
-#  port: 9113
