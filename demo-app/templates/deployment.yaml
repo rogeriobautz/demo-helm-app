@@ -18,8 +18,8 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: 80
-          {{- if .Values.metrics.enabled }}
-          args:
-            - --metrics-path={{ .Values.metrics.path }}
-          {{- end }}
+#          {{- if .Values.metrics.enabled }}
+#          args:
+#            - --metrics-path={{ .Values.metrics.path }}
+#          {{- end }}
 
