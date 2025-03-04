@@ -124,7 +124,7 @@ affinity: {}
 
 
 serviceMonitor:
-  enabled: true
+  enabled: false
   monitorNameSpace: k8s-prometheus
   labels:
     teste: local
