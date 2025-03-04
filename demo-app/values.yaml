@@ -1,0 +1,15 @@
+replicaCount: 1
+
+image:
+  repository: nginx
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
+metrics:
+  enabled: true
+  path: /metrics
+  port: 9113
